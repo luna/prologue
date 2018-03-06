@@ -4,6 +4,7 @@ import Prelude
 import Prologue.Data.Traversable
 import Control.Monad
 import           Data.Kind       (Constraint)
+import           Data.Maybe      (fromMaybe)
 import qualified Data.Foldable      as F
 import qualified Data.Bifoldable    as F
 import qualified Control.Error.Safe as S
@@ -43,6 +44,10 @@ maximum :: MonadPlus m => Ord a => [a] -> m a
 minimum = S.minimumZ ; {-# INLINE minimum #-}
 maximum = S.maximumZ ; {-# INLINE maximum #-}
 
+minimumDef :: Ord a => a -> [a] -> a
+maximumDef :: Ord a => a -> [a] -> a
+minimumDef d = fromMaybe d . Prologue.Data.Foldable.minimum ; {-# INLINE minimumDef #-}
+maximumDef d = fromMaybe d . Prologue.Data.Foldable.maximum ; {-# INLINE maximumDef #-}
 
 -- === Deprecations === --
 

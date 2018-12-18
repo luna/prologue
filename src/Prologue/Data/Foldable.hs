@@ -5,7 +5,7 @@ import Prologue.Data.Maybe       (fromJust)
 import Prologue.Data.Traversable
 
 import Control.Monad
-import           Data.Kind       (Constraint)
+import           Data.Kind       (Constraint, Type)
 import qualified Data.Foldable      as F
 import qualified Data.Bifoldable    as F
 import qualified Control.Error.Safe as S

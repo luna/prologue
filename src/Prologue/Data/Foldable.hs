@@ -19,7 +19,7 @@ import           Data.Bifoldable    as X (biconcat, biconcatMap, biand, bior, bi
 import Data.Semigroup.Foldable as X (Foldable1, fold1, foldMap1, toNonEmpty)
 
 
-type family Foldables (lst :: [* -> *]) :: Constraint where
+type family Foldables (lst :: [Type -> Type]) :: Constraint where
     Foldables '[]       = ()
     Foldables (t ': ts) = (Foldable t, Foldables ts)
 

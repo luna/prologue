@@ -9,7 +9,7 @@ import Data.Kind               (Constraint)
 
 -- === Type families === --
 
-type family MonadTranses (ts :: [(* -> *) -> * -> *]) :: Constraint where
+type family MonadTranses (ts :: [(Type -> Type) -> Type -> Type]) :: Constraint where
     MonadTranses '[]       = ()
     MonadTranses (t ': ts) = (MonadTrans t, MonadTranses ts)
 

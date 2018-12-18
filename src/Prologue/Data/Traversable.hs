@@ -8,7 +8,7 @@ import           Data.Traversable   as X (Traversable  , traverse  , mapM  , for
 import           Data.Bitraversable as X (Bitraversable, bitraverse, bimapM, bifor)
 
 
-type family Traversables (lst :: [* -> *]) :: Constraint where
+type family Traversables (lst :: [Type -> Type] :: Constraint where
     Traversables '[]       = ()
     Traversables (t ': ts) = (Traversable t, Traversables ts)
 
